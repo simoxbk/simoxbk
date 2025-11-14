@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results - Device Finder</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Device Finder</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="results-container">
+                <div class="results-card">
+                    <div class="success-icon">
+                        <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="40" cy="40" r="38" stroke="#10b981" stroke-width="4" fill="none" opacity="0.2"/>
+                            <circle cx="40" cy="40" r="38" stroke="#10b981" stroke-width="4" fill="none" stroke-dasharray="240" stroke-dashoffset="0" class="check-circle">
+                                <animate attributeName="stroke-dashoffset" from="240" to="0" dur="0.6s" fill="freeze"/>
+                            </circle>
+                            <path d="M25 40 L35 50 L55 30" stroke="#10b981" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-dasharray="50" stroke-dashoffset="50" class="check-mark">
+                                <animate attributeName="stroke-dashoffset" from="50" to="0" dur="0.4s" begin="0.3s" fill="freeze"/>
+                            </path>
+                        </svg>
+                    </div>
+                    
+                    <h2 class="results-title">Request Submitted Successfully</h2>
+                    
+                    <div class="results-message">
+                        <p class="message-primary">If your device is registered, you will receive updates soon.</p>
+                        <p class="message-secondary">We're processing your request and will notify you via the contact information provided.</p>
+                    </div>
+
+                    <div class="results-info">
+                        <div class="info-item">
+                            <span class="info-label">Search Type:</span>
+                            <span class="info-value" id="searchTypeDisplay">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Identifier:</span>
+                            <span class="info-value" id="identifierDisplay">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Request ID:</span>
+                            <span class="info-value" id="requestId">-</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Status:</span>
+                            <span class="info-value status-badge">Processing</span>
+                        </div>
+                    </div>
+
+                    <div class="timeline">
+                        <h3 class="timeline-title">What Happens Next?</h3>
+                        <div class="timeline-items">
+                            <div class="timeline-item active">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Request Received</h4>
+                                    <p>Your device lookup request has been submitted</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Database Check</h4>
+                                    <p>We'll verify if your device is registered in our system</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker"></div>
+                                <div class="timeline-content">
+                                    <h4>Notification Sent</h4>
+                                    <p>You'll receive updates via your provided contact method</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <a href="index.html" class="btn btn-primary">
+                            <span class="btn-text">Search Another Device</span>
+                        </a>
+                        <button onclick="window.print()" class="btn btn-secondary">
+                            <span class="btn-text">Print Results</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="help-section">
+                    <h3>Need Help?</h3>
+                    <p>If you have any questions or concerns about your device search, please contact our support team.</p>
+                    <div class="help-actions">
+                        <a href="#support" class="help-link">Contact Support</a>
+                        <a href="#faq" class="help-link">View FAQ</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Device Finder</h4>
+                    <p>Helping you locate and track your devices securely.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Email: support@devicefinder.com</li>
+                        <li>Phone: +1 (555) 000-0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Device Finder. All rights reserved. Demo Application.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const searchType = urlParams.get('type');
+            const identifier = urlParams.get('id');
+            
+            if (searchType && identifier) {
+                document.getElementById('searchTypeDisplay').textContent = 
+                    searchType === 'phone' ? 'Phone Number' : 'Device ID';
+                document.getElementById('identifierDisplay').textContent = identifier;
+            }
+            
+            const requestId = 'REQ-' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('requestId').textContent = requestId;
+        });
+    </script>
+</body>
+</html>

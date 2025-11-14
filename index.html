@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Device Finder - Locate Your Device</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <h1>Device Finder</h1>
+            </div>
+            <nav class="nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <div class="hero">
+                <h2 class="hero-title">Find Your Device</h2>
+                <p class="hero-subtitle">Enter your phone number or device ID to check registration status</p>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Device Lookup</h3>
+                    <p>Please provide your device information below</p>
+                </div>
+                <form id="deviceForm" class="form">
+                    <div class="form-group">
+                        <label for="searchType" class="form-label">Search By</label>
+                        <select id="searchType" class="form-input" required>
+                            <option value="phone">Phone Number</option>
+                            <option value="device">Device ID</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="phoneGroup">
+                        <label for="phoneNumber" class="form-label">Phone Number</label>
+                        <input 
+                            type="tel" 
+                            id="phoneNumber" 
+                            class="form-input" 
+                            placeholder="+1 (555) 123-4567"
+                            pattern="[0-9+\-\(\)\s]+"
+                        >
+                        <small class="form-hint">Enter your phone number with country code</small>
+                    </div>
+
+                    <div class="form-group hidden" id="deviceGroup">
+                        <label for="deviceId" class="form-label">Device ID</label>
+                        <input 
+                            type="text" 
+                            id="deviceId" 
+                            class="form-input" 
+                            placeholder="XXXX-XXXX-XXXX-XXXX"
+                            pattern="[A-Za-z0-9\-]+"
+                        >
+                        <small class="form-hint">Enter your unique device identifier</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email" class="form-label">Email (Optional)</label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            class="form-input" 
+                            placeholder="your.email@example.com"
+                        >
+                        <small class="form-hint">Receive updates via email</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <span class="btn-text">Search Device</span>
+                            <span class="btn-icon">→</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="info-section">
+                <div class="info-card">
+                    <div class="info-icon">🔒</div>
+                    <h4>Secure</h4>
+                    <p>Your data is protected with industry-standard encryption</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⚡</div>
+                    <h4>Fast</h4>
+                    <p>Get instant results and updates on your device status</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🌍</div>
+                    <h4>Global</h4>
+                    <p>Works with devices registered worldwide</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Device Finder</h4>
+                    <p>Helping you locate and track your devices securely.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#support">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li>Email: support@devicefinder.com</li>
+                        <li>Phone: +1 (555) 000-0000</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Device Finder. All rights reserved. Demo Application.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
